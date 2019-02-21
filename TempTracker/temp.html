@@ -1,0 +1,117 @@
+<script>
+    var arr=         //creating array of ojects containing day and temperature
+    [
+        {
+            day:"Monday",
+            temp:20
+        },
+        {
+            day:"Tuesday",
+            temp:18
+        },
+        {
+            day:"Wednesday",
+            temp:17
+        },
+        {
+            day:"Thursday",
+            temp:13
+        },
+        {
+            day:"Friday",
+            temp:21
+        },
+        {
+            day:"Saturday",
+            temp:23
+        },
+        {
+            day:"Sunday",
+            temp:11
+        }
+    ]           //array of objects closed
+
+    function get_max()         //function to calculate maximum temperature
+    {
+        for(let i=0;i<arr.length;i++)
+        {
+            for(let j=i+1;j<arr.length;j++)      //bubble sort
+            {
+                if(arr[i].temp>arr[j].temp)
+                {
+                    let store= arr[i].temp;
+                    arr[i].temp=arr[j].temp;
+                    arr[j].temp=store;
+                }
+        
+            }
+        
+        }
+        console.log("Maximum Temperature found : "+arr[6].temp +" Celcius");   // Max temperature printed
+    }
+
+
+    function get_min()           //function to calculate minimum temperature
+    {
+        for(let i =0;i<arr.length;i++)
+        {
+            for(let j=i+1;j<arr.length;j++)
+            {
+                if(arr[i].temp<arr[j].temp)
+                {
+                    let store=arr[i].temp;            //bubble sort
+                    arr[i].temp=arr[j].temp; 
+                    arr[j].temp=store;
+                }
+            }
+        }
+        console.log("Minimum Temperature found : "+arr[6].temp+ " Celcius");    //min temp prints
+
+    }
+
+    function get_mean()        //calculated mean of given temperatures
+    {
+        var sum=0;
+        for(let i=0;i<arr.length;i++)
+        {
+            sum = sum+ arr[i].temp; 
+        }
+        var mean= sum/arr.length;
+        console.log("Mean calculated is : "+mean);   //prints mean
+    }
+
+
+    function get_mode()            //calculates mode of given temperature
+    {
+        let maxCount=0;
+        let count = 0;
+        for (let i = 0; i < arr.length; ++i) 
+        {
+
+            for (let j = 0; j < arr.length; ++j) 
+            {
+                if (arr[j].temp == arr[i].temp) 
+                {
+                ++count;
+                }
+            }
+            if (count > maxCount)
+            {
+                maxCount = count;
+                maxValue = arr[i].temp;
+            }
+        }
+
+        console.log("Mode calculated is : "+maxValue);   //prints mode
+    }
+
+               
+    get_max();
+    get_min();
+    get_mean();
+    get_mode();
+                
+
+
+</script>
+
